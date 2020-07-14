@@ -1,0 +1,36 @@
+{% load static%}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My library</title>
+</head>
+<body>
+   <nav>
+       <div class="logo">
+         <a href="{%url 'home'%}"> <h4 >
+                Abdullahi
+           </h4>
+           </a>
+       </div>
+       <ul class="nav-links">
+        <li><a href="{%url 'home'%}">home</a></li>
+        <li><a href="{%url 'content'%}">content</a></li>
+    </ul>
+    <div class="burger">
+        <div class='line1'></div>
+        <div class='line2'></div>
+        <div class='line3'></div>
+        </div>
+    </div>
+   </nav>
+
+    {%block content%}
+    {%endblock%}
+
+    <script src="{%static 'script.js'%}"></script>
+</body>
+</html>

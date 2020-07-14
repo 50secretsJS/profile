@@ -1,0 +1,68 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+
+
+<h3>my library</h3>
+
+<div class="container">
+
+
+    {%if photo%}
+
+    {%for pic in  photo %}
+    <div class="grid-container">
+        <div class="gallery-item">
+            <div class="card">
+                <img src="{{pic.picture.url}}" alt="">
+                <div class="text">{{pic.title}}</div>
+            </div>
+         
+        </div>
+    </div>
+    {%endfor%}
+   
+    {%else%}
+   
+            <div class="card">
+              <p>photo not available</p>
+                
+            </div>
+    
+      
+    </div>
+
+
+    {%endif%}
+</div>
+<div class="pag-container">
+    {% if photo.has_other_pages %}
+<div class="pagination">
+    {% if photo.has_previous %}
+    <a href="?page={{ photo.previous_page_number }}">&laquo;</a>
+    {% else %}
+    <a href="#">&laquo;</a>
+    {% endif %}
+    {%for ss in photo.paginator.page_range%}
+    {%if photo.number == ss%}
+    <a class="active">{{ss}}</a>
+    {%else %}
+    <a href="?page={{ss}}">{{ss}}</a>
+    {%endif%}
+   
+
+    {%endfor%}
+    {% if photo.has_next %}
+    <a href="?page={{ photo.next_page_number }}">&raquo;</a>
+    {% else %}
+    <a href="#">&raquo;</a>
+    {% endif %}
+    
+    {% endif %}
+
+
+   
+  </div>
+  </div>
+{%endblock%}
